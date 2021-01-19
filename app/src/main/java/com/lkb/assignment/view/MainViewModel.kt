@@ -14,6 +14,7 @@ class MainViewModel(private val postUseCase: GetPostsUseCase) : ViewModel() {
     val postList = MutableLiveData<List<Post>>()
     val showProgressbar = MutableLiveData<Boolean>()
     val messageData = MutableLiveData<String>()
+    val dataNotFound = MutableLiveData<Boolean>()
     var temp: List<PostCount>? = null
     fun getPost() {
         showProgressbar.value = true
@@ -52,7 +53,9 @@ class MainViewModel(private val postUseCase: GetPostsUseCase) : ViewModel() {
         if (s?.isEmpty() == true) {
             postsData.value = temp
         } else {
-            postsData.value = temp?.filter { it.userId.contentEquals(s.toString())}
+            val filteredList = temp?.filter { it.userId.contentEquals(s.toString()) }
+            postsData.value = filteredList
+            filteredList?.let { dataNotFound.value = it.isEmpty() }
         }
     }
 

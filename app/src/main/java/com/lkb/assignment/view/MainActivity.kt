@@ -51,6 +51,9 @@ class MainActivity : AppCompatActivity(), UserPostsAdapter.OnPostClickListener {
             showProgressbar.observe(this@MainActivity, { isVisible ->
                 activityPostsBinding.postsProgressBar.visibility = if (isVisible) VISIBLE else GONE
             })
+            dataNotFound.observe(this@MainActivity, { isVisible ->
+                activityPostsBinding.tvDataNotFound.visibility = if (isVisible) VISIBLE else GONE
+            })
         }
     }
 

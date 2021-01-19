@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/etFilter"
+            app:layout_constraintTop_toBottomOf="@+id/tvDataNotFound"
             tools:layout_editor_absoluteX="1dp"
             tools:listitem="@layout/item_holder" />
 
@@ -41,6 +41,18 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDataNotFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:text="Data Not Found"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFilter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
